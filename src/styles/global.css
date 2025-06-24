@@ -1,0 +1,22 @@
+:root {
+  --color-primary: #e50914;   /* Netflix-style red */
+  --color-secondary: #222;    /* Dark gray background */
+  --color-text: #fff;         /* White text */
+}
+
+/* Reset margin/padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body basic styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--color-secondary); /* Dark background for OTT look */
+  color: var(--color-text); /* White text */
+  line-height: 1.6;
+}
+
+
