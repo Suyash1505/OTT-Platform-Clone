@@ -1,23 +1,22 @@
 import { Routes, Route } from 'react-router-dom';
 import Header from './header';
-import Home from "./pages/home"
-import Browse from "./pages/browser"
-import Watch from "./pages/watch"
-import Login from "./pages/login"
-import './styles/global.css';
-
+import Login from './pages/login';
+import MoodSelector from './pages/MoodSelector';
+import FocusedMode from './pages/FocusedMode';
+import EntertainMode from './pages/EntertainMode';
+import SpiritualMode from './pages/SpiritualMode';
 
 export default function App() {
-
   return (
-  <>
-    <Header />
+    <>
+      <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/browse" element={<Browse />} />
-        <Route path="/watch" element={<Watch />} />
-        <Route path="/login" element={<Login />} />
-      </Routes> 
-  </>
+        <Route path="/" element={<Login />} />
+        <Route path="/mood" element={<MoodSelector />} />
+        <Route path="/focused" element={<FocusedMode />} />
+        <Route path="/entertain" element={<EntertainMode />} />
+        <Route path="/spiritual" element={<SpiritualMode />} />
+      </Routes>
+    </>
   );
 }
