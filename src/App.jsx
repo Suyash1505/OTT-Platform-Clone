@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Header from './header';
-import Login from './pages/login';
+import Login from './pages/Login';
 import MoodSelector from './pages/MoodSelector';
 import FocusedMode from './pages/FocusedMode';
 import EntertainMode from './pages/EntertainMode';
