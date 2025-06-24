@@ -1,10 +1,10 @@
 /* 1. Root CSS Variables for color palette */
 :root {
-  --color-primary: #e50914;       /* Netflix red */
-  --color-secondary: #141414;     /* Dark background */
-  --color-accent: #b81d24;        /* Hover red */
-  --color-light: #ffffff;
-  --color-muted: #999999;
+  --color-light: #f1f1f1;
+  --color-dark: #121212;
+  --color-muted: #aaaaaa;
+  --color-secondary: #181818;
+  --color-primary: #e50914;
 
   --font-main: 'Poppins', sans-serif;
 }

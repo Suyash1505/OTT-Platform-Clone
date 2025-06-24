@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import styles from './FocusedMode.module.css';
+
 
 export default function FocusedMode() {
   const content = [
@@ -38,129 +40,35 @@ export default function FocusedMode() {
   const filteredContent = filter === 'all' ? content : content.filter(item => item.category === filter);
 
   return (
-    <div style={styles.layout}>
-      {/* Sidebar */}
-      <aside style={styles.sidebar}>
-        <h2 style={styles.sidebarTitle}>📂 Sections</h2>
-        <ul style={styles.sidebarList}>
-          <li
-            style={filter === 'all' ? styles.activeLink : null}
-            onClick={() => setFilter('all')}
-          >
-            <a href="#">All</a>
-          </li>
-          <li
-            style={filter === 'audiobook' ? styles.activeLink : null}
-            onClick={() => setFilter('audiobook')}
-          >
-            <a href="#">📘 Audiobooks</a>
-          </li>
-          <li
-            style={filter === 'motivation' ? styles.activeLink : null}
-            onClick={() => setFilter('motivation')}
-          >
-            <a href="#">🎤 Motivation</a>
-          </li>
-          <li
-            style={filter === 'selfhelp' ? styles.activeLink : null}
-            onClick={() => setFilter('selfhelp')}
-          >
-            <a href="#">📚 Self-help</a>
-          </li>
+    <div className={styles.layout}>
+    <aside className={styles.sidebar}>
+        <h2 className={styles.sidebarTitle}>📂 Sections</h2>
+        <ul className={styles.sidebarList}>
+        <li onClick={() => setFilter('all')} className={filter === 'all' ? styles.activeLink : ''}>All</li>
+        <li onClick={() => setFilter('audiobook')} className={filter === 'audiobook' ? styles.activeLink : ''}>📘 Audiobooks</li>
+        <li onClick={() => setFilter('motivation')} className={filter === 'motivation' ? styles.activeLink : ''}>🎤 Motivation</li>
+        <li onClick={() => setFilter('selfhelp')} className={filter === 'selfhelp' ? styles.activeLink : ''}>📚 Self-help</li>
         </ul>
-      </aside>
+    </aside>
 
-      {/* Main Content */}
-      <main style={styles.content}>
-        <h1 style={styles.heading}>🎧 Focused Mode</h1>
-        <p style={styles.subheading}>Curated content to sharpen your mind before screen time.</p>
-        <div style={styles.grid}>
-          {filteredContent.map(item => (
-            <div key={item.id} style={styles.card}>
-              <img src={item.thumbnail} alt={item.title} style={styles.image} />
-              <div style={styles.cardContent}>
-                <h2 style={styles.title}>{item.title}</h2>
-                <p style={styles.desc}>{item.desc}</p>
-              </div>
+    <main className={styles.content}>
+        <h1 className={styles.heading}>🎧 Focused Mode</h1>
+        <p className={styles.subheading}>Curated content to sharpen your mind before screen time.</p>
+
+        <div className={styles.grid}>
+        {filteredContent.map(item => (
+            <div key={item.id} className={styles.card}>
+            <img src={item.thumbnail} alt={item.title} className={styles.image} />
+            <div className={styles.cardContent}>
+                <h2 className={styles.title}>{item.title}</h2>
+                <p className={styles.desc}>{item.desc}</p>
             </div>
-          ))}
+            </div>
+        ))}
         </div>
-      </main>
+    </main>
     </div>
+
   );
 }
 
-const styles = {
-  layout: {
-    display: 'flex',
-  },
-  sidebar: {
-    width: '220px',
-    backgroundColor: '#1a1a1a',
-    padding: '2rem 1rem',
-    height: '100vh',
-    borderRight: '1px solid #333',
-    position: 'sticky',
-    top: '4.5rem',
-  },
-  sidebarTitle: {
-    fontSize: '1.2rem',
-    marginBottom: '1rem',
-    color: 'var(--color-light)',
-  },
-  sidebarList: {
-    listStyle: 'none',
-    padding: 0,
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '1rem',
-    cursor: 'pointer',
-  },
-  activeLink: {
-    fontWeight: '700',
-    color: 'var(--color-primary)',
-  },
-  content: {
-    flex: 1,
-    padding: '2rem',
-  },
-  heading: {
-    fontSize: '2rem',
-    marginBottom: '0.5rem',
-  },
-  subheading: {
-    fontSize: '1rem',
-    color: 'var(--color-muted)',
-    marginBottom: '2rem',
-  },
-  grid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
-    gap: '2rem',
-  },
-  card: {
-    backgroundColor: '#1b1b1b',
-    borderRadius: '8px',
-    overflow: 'hidden',
-    boxShadow: '0 2px 12px rgba(0, 0, 0, 0.2)',
-    transition: 'transform 0.3s ease',
-    cursor: 'pointer',
-  },
-  image: {
-    width: '100%',
-    height: '180px',
-    objectFit: 'cover',
-  },
-  cardContent: {
-    padding: '1rem',
-  },
-  title: {
-    fontSize: '1.1rem',
-    marginBottom: '0.5rem',
-    color: 'var(--color-light)',
-  },
-  desc: {
-    fontSize: '0.9rem',
-    color: 'var(--color-muted)',
-  },
-};

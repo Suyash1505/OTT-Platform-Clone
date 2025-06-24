@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import styles from './EntertainMode.module.css';
 
 export default function EntertainMode() {
   const categories = [
@@ -33,8 +34,8 @@ export default function EntertainMode() {
   ];
 
   return (
-    <div style={styles.wrapper}>
-      <h1 style={styles.pageTitle}>🍿 Entertain Mode</h1>
+    <div className={styles.wrapper}>
+      <h1 className={styles.pageTitle}>🍿 Entertain Mode</h1>
       {categories.map(cat => (
         <CategoryRow key={cat.id} title={cat.title} items={cat.items} />
       ))}
@@ -53,84 +54,20 @@ function CategoryRow({ title, items }) {
   };
 
   return (
-    <section style={styles.categorySection}>
-      <h2 style={styles.categoryTitle}>{title}</h2>
-      <div style={styles.carouselContainer}>
-        <button onClick={scrollLeft} style={styles.navButton}>{'‹'}</button>
-        <div style={styles.carousel} ref={rowRef}>
+    <section className={styles.categorySection}>
+      <h2 className={styles.categoryTitle}>{title}</h2>
+      <div className={styles.carouselContainer}>
+        <button onClick={scrollLeft} className={styles.navButton}>{'‹'}</button>
+        <div className={styles.carousel} ref={rowRef}>
           {items.map(item => (
-            <div key={item.id} style={styles.card}>
-              <img src={item.thumbnail} alt={item.title} style={styles.cardImage} />
-              <p style={styles.cardTitle}>{item.title}</p>
+            <div key={item.id} className={styles.card}>
+              <img src={item.thumbnail} alt={item.title} className={styles.cardImage} />
+              <p className={styles.cardTitle}>{item.title}</p>
             </div>
           ))}
         </div>
-        <button onClick={scrollRight} style={styles.navButton}>{'›'}</button>
+        <button onClick={scrollRight} className={styles.navButton}>{'›'}</button>
       </div>
     </section>
   );
 }
-
-const styles = {
-  wrapper: {
-    padding: '2rem',
-    backgroundColor: 'var(--color-secondary)',
-    color: 'var(--color-light)',
-    minHeight: '100vh',
-  },
-  pageTitle: {
-    fontSize: '2rem',
-    marginBottom: '2rem',
-  },
-  categorySection: {
-    marginBottom: '2.5rem',
-  },
-  categoryTitle: {
-    fontSize: '1.5rem',
-    marginBottom: '1rem',
-  },
-  carouselContainer: {
-    display: 'flex',
-    alignItems: 'center',
-    position: 'relative',
-  },
-  navButton: {
-    backgroundColor: 'rgba(20, 20, 20, 0.7)',
-    border: 'none',
-    color: 'var(--color-light)',
-    fontSize: '2rem',
-    cursor: 'pointer',
-    padding: '0 10px',
-    userSelect: 'none',
-    borderRadius: '4px',
-    zIndex: 10,
-  },
-  carousel: {
-    display: 'flex',
-    overflowX: 'auto',
-    scrollBehavior: 'smooth',
-    gap: '1rem',
-    padding: '0.5rem 0',
-    scrollbarWidth: 'none', // Firefox
-  },
-  card: {
-    flex: '0 0 auto',
-    width: '160px',
-    borderRadius: '8px',
-    overflow: 'hidden',
-    backgroundColor: '#222',
-    boxShadow: '0 2px 8px rgba(0,0,0,0.5)',
-    cursor: 'pointer',
-  },
-  cardImage: {
-    width: '100%',
-    height: '240px',
-    objectFit: 'cover',
-  },
-  cardTitle: {
-    padding: '0.5rem',
-    fontSize: '1rem',
-    textAlign: 'center',
-    color: 'var(--color-light)',
-  },
-};
