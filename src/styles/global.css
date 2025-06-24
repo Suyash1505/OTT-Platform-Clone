@@ -1,22 +1,94 @@
+/* 1. Root CSS Variables for color palette */
 :root {
-  --color-primary: #e50914;   /* Netflix-style red */
-  --color-secondary: #222;    /* Dark gray background */
-  --color-text: #fff;         /* White text */
+  --color-primary: #e50914;       /* Netflix red */
+  --color-secondary: #141414;     /* Dark background */
+  --color-accent: #b81d24;        /* Hover red */
+  --color-light: #ffffff;
+  --color-muted: #999999;
+
+  --font-main: 'Poppins', sans-serif;
 }
 
-/* Reset margin/padding */
+/* 2. Box model reset + universal base styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body basic styling */
+/* 3. Body styling */
 body {
-  font-family: Arial, sans-serif;
-  background-color: var(--color-secondary); /* Dark background for OTT look */
-  color: var(--color-text); /* White text */
+  font-family: var(--font-main);
+  background-color: var(--color-secondary);
+  color: var(--color-light);
   line-height: 1.6;
+  scroll-behavior: smooth;
 }
 
+/* 4. Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
 
+::-webkit-scrollbar-track {
+  background: var(--color-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+  border-radius: 4px;
+}
+
+/* 5. Typography - Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--color-light);
+}
+
+/* 6. Links */
+a {
+  color: var(--color-light);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+/* 7. Buttons */
+button {
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--color-accent);
+}
+
+/* 8. Images */
+img {
+  max-width: 100%;
+  display: block;
+  border-radius: 6px;
+}
+
+/* 9. Inputs & Forms (future use) */
+input, select, textarea {
+  font-family: var(--font-main);
+}
+
+/* 10. Container Helper Class (optional use) */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
