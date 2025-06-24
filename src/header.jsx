@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 export default function Header() {
   return (
     <header style={styles.header}>
-      <h2 style={styles.logo}>MyOTT</h2>
+      <div style={styles.left}>
+        <Link to="/" style={styles.logo}>MyOTT</Link>
+      </div>
       <nav style={styles.nav}>
-        <Link style={styles.link} to="/">Home</Link>
-        <Link style={styles.link} to="/browse">Browse</Link>
-        <Link style={styles.link} to="/watch">Watch</Link>
-        <Link style={styles.link} to="/login">Login</Link>
+        <Link to="/mood" style={styles.navLink}>Modes</Link>
+        <Link to="/entertain" style={styles.navLink}>Entertainment</Link>
+        <Link to="/focused" style={styles.navLink}>Focus</Link>
+        <Link to="/spiritual" style={styles.navLink}>Spiritual</Link>
       </nav>
     </header>
   );
@@ -16,23 +18,34 @@ export default function Header() {
 
 const styles = {
   header: {
-    backgroundColor: '#111',
+    position: 'sticky',
+    top: 0,
+    zIndex: 1000,
+    backgroundColor: '#0f0f0f',
     padding: '1rem 2rem',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    color: '#fff',
+    borderBottom: '1px solid #333',
+  },
+  left: {
+    fontSize: '1.5rem',
+    fontWeight: 'bold',
   },
   logo: {
-    margin: 0,
+    color: 'var(--color-primary)',
+    textDecoration: 'none',
+    fontSize: '1.6rem',
+    letterSpacing: '0.5px',
   },
   nav: {
     display: 'flex',
     gap: '1.5rem',
   },
-  link: {
-    color: '#fff',
+  navLink: {
+    color: 'var(--color-light)',
     textDecoration: 'none',
-    fontWeight: 'bold',
+    fontWeight: '500',
+    transition: 'color 0.2s ease',
   },
 };
