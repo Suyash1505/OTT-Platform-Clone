@@ -7,7 +7,7 @@ export default function Header() {
       <Link to="/" className={styles.logo}>MyOTT</Link>
       <nav className={styles.nav}>
         <Link to="/mood" className={styles.link}>Mood</Link>
-        <Link to="/focus" className={styles.link}>Focus</Link>
+        <Link to="/focused" className={styles.link}>Focus</Link>
         <Link to="/entertain" className={styles.link}>Entertain</Link>
         <Link to="/spiritual" className={styles.link}>Spiritual</Link>
       </nav>
