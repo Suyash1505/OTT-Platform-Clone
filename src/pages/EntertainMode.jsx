@@ -77,7 +77,6 @@ export default function EntertainMode() {
             height="450"
             src={trailerUrl}
             title="Trailer"
-            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />

@@ -58,11 +58,11 @@ export default function FocusedMode() {
         <div className={styles.grid}>
         {filteredContent.map(item => (
             <div key={item.id} className={styles.card}>
-            <img src={item.thumbnail} alt={item.title} className={styles.image} />
-            <div className={styles.cardContent}>
-                <h2 className={styles.title}>{item.title}</h2>
-                <p className={styles.desc}>{item.desc}</p>
-            </div>
+              <img src={item.thumbnail} alt={item.title} className={styles.image} />
+              <div className={styles.cardContent}>
+                  <h2 className={styles.title}>{item.title}</h2>
+                  <p className={styles.desc}>{item.desc}</p>
+              </div>
             </div>
         ))}
         </div>
